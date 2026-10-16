@@ -70,13 +70,8 @@ abstract final class _Layout {
   static const double roundelSize = 58;
 }
 
-/// Algeria's plate geometries.
-///
-/// * [singleLine] — the 520×110 plate, `NNNNN NNN NN`. White on black at the
-///   front, black on yellow at the rear: the theme, not the spec.
-/// * [twoLine] — the 275×200 plate: serial over class+year and wilaya.
-/// * [diplomatic] — `NNN-NN-NN`, black on teal.
-/// * [army] — nine silver digits on black, the flag in a roundel at the left.
+/// Algeria's plate geometries. Front and rear singleLine plates share a spec;
+/// the livery is the theme's.
 ///
 /// The civil specs have one field per text group: `serial` (5), `type` (3:
 /// vehicle class then year of manufacture) and `wilaya` (2); diplomatic has
@@ -92,9 +87,8 @@ abstract final class AlgeriaPlates {
     PlateTextGroup(<int>[2], key: 'wilaya'),
   ];
 
-  /// One field of [count] digits over [count] cells of [pitch]. The glyph is
-  /// set at 0.72 of the height and a digit advances ~0.6 em, so the spacing is
-  /// what is left of the pitch.
+  /// [count] digits over [count] cells of [pitch]; spacing is what remains of
+  /// the pitch after a digit's ~0.6 em advance at 0.72 of [height].
   static PlateSlot _field(
     int count, {
     required double left,
